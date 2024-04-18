@@ -1,5 +1,6 @@
 import { React, useReducer, useState } from 'react'
 import FOption from './ui/FOption'
+import '../assets/css/CustomOptions.css'
 
 export default function CustomOptions() {
   const [text, setText] = useState('');
@@ -45,11 +46,16 @@ export default function CustomOptions() {
       <button type='button'
         onClick={handleAddOption}
       >
-        new
+        new option
       </button>
-      <ul>
-        {optionsList}
-      </ul>
+      {
+        options.length > 0 &&
+        <div className='options-list'>
+          <ul>
+            {optionsList}
+          </ul>
+        </div>
+      }
     </>
   );
 }

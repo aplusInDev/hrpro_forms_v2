@@ -1,0 +1,45 @@
+.options-list {
+  position: relative;
+  margin-top: 5px;
+  height: 90px;
+  width: 205px;
+  border: 2px solid #044638;
+  border-radius: 10px;
+  margin: -2px;
+}
+
+input[name="foption"] {
+  width: 155px;
+  margin: 5px 2px;
+}
+
+.options-list > ul {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 200px;
+  height: 80px;
+  padding: 5px 10px;
+  overflow-y: scroll;
+}
+
+li > * {
+  margin-right: 2px;
+}
+
+/* styling scrollbar */
+.options-list > ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.options-list > ul::-webkit-scrollbar-thumb {
+  background-color: #7e8785;
+  border-radius: 10px;
+}
+
+.options-list > ul::-webkit-scrollbar-track {
+  background-color: none;
+  border-radius: 10px;
+}
+
+/* styling scrollbar */

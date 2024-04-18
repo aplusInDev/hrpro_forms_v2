@@ -1,13 +1,9 @@
 import React from 'react'
 
-export default function FType({ types }) {
-  let options = null;
-
-  if (types) {
-    options = types.map((type, index) => {
-      return <option key={index} value={type}>{type}</option>
-    });
-  }
+export default function FType() {
+  const options = types.map((type, index) => {
+    return <option key={index} value={type}>{type}</option>
+  });
 
   return (
     <select>
@@ -15,3 +11,10 @@ export default function FType({ types }) {
     </select>
   );
 }
+
+const types = [
+  "text", "number", "tel",
+  "email", "password", "date",
+  "checkbox", "select", "texterea",
+  "file", "radio"
+]

@@ -1,7 +1,7 @@
 .form-info {
   position: relative;
   /* padding: 30px; */
-  width: 800px;
+  width: 1000px;
   height: 150px;
   margin: 30px auto;
   border-radius: 10px;
@@ -18,14 +18,13 @@
 .form-info > span:first-of-type {
   /* background-color: red; */
   left: 0;
-  width: 90%;
 }
 
 .form-info > span:last-of-type {
   /* background-color: blue; */
   right: 0;
   width: 10%;
-  min-height: 120px;
+  min-width: 200px;
 }
 
 .form-info .form-title {
@@ -64,19 +63,28 @@
 }
 
 .form-info button ,
+.form-info input[type="text"],
 .form-info input[type="submit"] {
-  border: 1px solid #107660;
   border-radius: 10px;
-  cursor: pointer;
   font-size: medium;
   font-weight: 400;
-  width: 100px;
+  width: 180px;
   height: 25px;
-  text-align: center;
   line-height: 25px;
   margin-top: 10px;
-  margin-left: -10px;
-  transform: translate(-50%, -50%);
+  transform: translateX(-20px);
+}
+
+.form-info input[type="text"] {
+  text-align: left;
+  padding: 0 5px;
+}
+
+.form-info button ,
+.form-info input[type="submit"] {
+  text-align: center;
+  border: 1px solid #107660;
+  cursor: pointer;
 }
 
 .form-info button:hover,
