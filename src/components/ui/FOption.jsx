@@ -14,7 +14,7 @@ export default function FOption({
   }
 
   function handleRemove() {
-    onRemove(option.index);
+    onRemove(option.id);
   }
   
   return (

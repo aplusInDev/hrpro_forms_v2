@@ -1,8 +1,10 @@
 import React from 'react'
-import { Example } from './components/ui'
+import { CustomOptions } from './components'
 
 export default function App() {
   return (
-    <Example />
+    <>
+      <CustomOptions />
+    </>
   )
 }
