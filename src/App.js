@@ -1,21 +1,10 @@
 import React from 'react'
-import { FName, FType, FIsRequired, FDefaultValue } from './components/ui'
-import { CustomOptions } from './components'
+import { CustomForm } from './pages';
 
 export default function App() {
   return (
     <>
-      <FName />
-      <FType types={types}/>
-      <FIsRequired />
-      <FDefaultValue />
-      <CustomOptions />
+      <CustomForm />
     </>
-  )
+  );
 }
-
-const types = [
-  "text", "number", "email", "password",
-  "date", "time", "textarea", "select",
-  "checkbox", "radio", "file", "tel"
-]
