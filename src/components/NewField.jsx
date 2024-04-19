@@ -33,7 +33,7 @@ export default function NewField() {
           <CustomOptions />
         </label>
       </span>
-      <input type='submit' value='new Field' />
+      <input type='submit' value='Add Field' />
     </form>
   );
 }

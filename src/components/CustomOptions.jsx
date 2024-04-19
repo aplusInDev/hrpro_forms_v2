@@ -1,6 +1,7 @@
 import { React, useReducer, useState } from 'react'
 import FOption from './ui/FOption'
 import '../assets/css/CustomOptions.css'
+import { Icon } from '@iconify/react';
 
 export default function CustomOptions() {
   const [text, setText] = useState('');
@@ -46,7 +47,7 @@ export default function CustomOptions() {
       <button type='button'
         onClick={handleAddOption}
       >
-        new option
+        <Icon icon="akar-icons:plus" /> option
       </button>
       {
         options.length > 0 &&

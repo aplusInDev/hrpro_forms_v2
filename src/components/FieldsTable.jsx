@@ -3,6 +3,7 @@ import { FName, FType, FDescription, FIsRequired, FDefaultValue } from './ui'
 import CustomOptions from './CustomOptions';
 import '../assets/css/FieldsTable.css'
 import '../assets/css/NewField.css'
+import { Icon } from '@iconify/react';
 
 export default function FieldsTable() {
   return (
@@ -15,7 +16,7 @@ export default function FieldsTable() {
             <th>is required</th>
             <th>default value</th>
             <th>field options</th>
-            <th>operations</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -29,8 +30,12 @@ export default function FieldsTable() {
                 <td><FDefaultValue /></td>
                 <td><CustomOptions options={field.options} /></td>
                 <td>
-                  <button>edit</button>
-                  <button>delete</button>
+                  <button>
+                    <Icon icon="akar-icons:edit" />
+                  </button>
+                  <button>
+                    <Icon icon="akar-icons:trash" />
+                  </button>
                 </td>
               </tr>
             ))

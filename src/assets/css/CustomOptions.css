@@ -10,7 +10,7 @@
 
 input[name="foption"] {
   width: 155px;
-  margin: 5px 2px;
+  margin: 2px;
 }
 
 .options-list > ul {
@@ -23,8 +23,16 @@ input[name="foption"] {
   overflow-y: scroll;
 }
 
-li > * {
-  margin-right: 2px;
+.options-list button {
+  width: 30px;
+  height: 20px;
+  margin-left: 4px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.options-list button + button:hover{
+  background-color: red;
 }
 
 /* styling scrollbar */

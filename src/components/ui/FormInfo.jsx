@@ -24,7 +24,7 @@ export default function FormInfo() {
       </span>
       <span>
         <input type='text' name='form-title' placeholder='form name' />
-        <input type='submit' value='new form' />
+        <input type='submit' value='Add Form' />
       </span>
     </form>
   );

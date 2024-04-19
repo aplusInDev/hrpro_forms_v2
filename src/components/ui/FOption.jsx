@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import { Icon } from '@iconify/react';
 
 export default function FOption({
   option,
@@ -31,20 +32,20 @@ export default function FOption({
           <button type='button'
             onClick={handleSave}
           >
-            save
+            <Icon icon="akar-icons:check" />
           </button>
         ) : (
           <button type='button'
             onClick={() => setIsEditing(true)}
           >
-            edit
+            <Icon icon="akar-icons:edit" />
           </button>
         )
       }
       <button type='button'
         onClick={handleRemove}
       >
-        remove
+        <Icon icon="akar-icons:trash" />
       </button>
     </>
   );
