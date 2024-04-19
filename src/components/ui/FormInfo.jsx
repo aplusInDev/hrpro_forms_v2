@@ -21,14 +21,17 @@ export default function FormInfo() {
 
   async function handleAddForm(e) {
     e.preventDefault();
+    const text = document.querySelector('input[name="form-title"]');
+    const desc = document.querySelector('textarea[name="form-description"]');
     const formInfo = {
-      name: document.querySelector('input[name="form-title"]').value,
-      description: document.querySelector('textarea[name="form-description"]').value,
+      name: text.value,
+      description: desc.value,
     };
     const form = await postForm(formInfo);
     if (form) {
       setForms([...forms, form]);
       setForm(form);
+      text.value = '';
     }
   }
 
