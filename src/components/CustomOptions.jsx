@@ -45,9 +45,11 @@ export default function CustomOptions() {
         placeholder='options'
       />
       <button type='button'
+        className='add-option-button'
         onClick={handleAddOption}
       >
-        <Icon icon="akar-icons:plus" /> option
+        <Icon icon="akar-icons:plus" />
+        <span>option</span>
       </button>
       {
         options.length > 0 &&

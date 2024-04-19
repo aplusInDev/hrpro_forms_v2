@@ -13,6 +13,27 @@ input[name="foption"] {
   margin: 2px;
 }
 
+.add-option-button {
+  position: relative;
+  transform: translateY(-5px);
+}
+
+.add-option-button:hover {
+  background-color: #041c46;
+}
+
+.add-option-button > :first-child {
+  position: absolute;
+  left: 5px;
+  top: 2px;
+}
+
+.add-option-button > :last-child {
+  position: absolute;
+  right: 15px;
+  top: 2px;
+}
+
 .options-list > ul {
   position: absolute;
   right: 5px;
@@ -24,9 +45,9 @@ input[name="foption"] {
 }
 
 .options-list button {
+  margin-left: 4px;
   width: 30px;
   height: 20px;
-  margin-left: 4px;
   line-height: 20px;
   text-align: center;
 }
