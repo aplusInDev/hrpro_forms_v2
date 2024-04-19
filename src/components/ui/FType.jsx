@@ -1,12 +1,16 @@
-import React from 'react'
+import { React, useState } from 'react'
 
-export default function FType() {
+export default function FType({ fType }) {
+  const [type, setType] = useState(fType);
   const options = types.map((type, index) => {
     return <option key={index} value={type}>{type}</option>
   });
 
   return (
-    <select>
+    <select
+      value={type}
+      onChange={(e) => setType(e.target.value)}
+    >
       {options}
     </select>
   );

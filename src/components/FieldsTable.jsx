@@ -1,4 +1,4 @@
-import React from 'react'
+import { React } from 'react'
 import { FName, FType, FDescription, FIsRequired, FDefaultValue } from './ui'
 import CustomOptions from './CustomOptions';
 import '../assets/css/FieldsTable.css'
@@ -22,22 +22,7 @@ export default function FieldsTable() {
         <tbody>
           {
             fields.map((field, index) => (
-              <tr key={index}>
-                <td><FName /></td>
-                <td><FDescription /></td>
-                <td><FType /></td>
-                <td><FIsRequired /></td>
-                <td><FDefaultValue /></td>
-                <td><CustomOptions options={field.options} /></td>
-                <td>
-                  <button>
-                    <Icon icon="akar-icons:edit" />
-                  </button>
-                  <button>
-                    <Icon icon="akar-icons:trash" />
-                  </button>
-                </td>
-              </tr>
+              <FieldRow key={index} field={field} />
             ))
           }
         </tbody>
@@ -45,11 +30,36 @@ export default function FieldsTable() {
   );
 }
 
+function FieldRow({ field }) {
+  const options = field.options.map((o, index) => {
+    return {id: index, text: o}
+  })
+
+  return (
+    <tr>
+      <td><FName fname={field.name} /></td>
+      <td><FDescription fDescription={field.description}/></td>
+      <td><FType fType={field.type} /></td>
+      <td><FIsRequired fIsRequired={field.isRequired} /></td>
+      <td><FDefaultValue fDefaultValue={field.defaultValue}/></td>
+      <td><CustomOptions fOptions={options} /></td>
+      <td>
+        <button>
+          <Icon icon="akar-icons:edit" />
+        </button>
+        <button>
+          <Icon icon="akar-icons:trash" />
+        </button>
+      </td>
+    </tr>
+  );
+}
+
 const fields = [
   {
     name: 'name',
     description: 'name of the user',
-    type: 'string',
+    type: 'text',
     isRequired: true,
     defaultValue: 'user',
     options: ['user', 'admin']
@@ -57,7 +67,7 @@ const fields = [
   {
     name: 'email',
     description: 'email of the user',
-    type: 'string',
+    type: 'text',
     isRequired: true,
     defaultValue: '',
     options: []
@@ -68,6 +78,6 @@ const fields = [
     type: 'number',
     isRequired: false,
     defaultValue: 0,
-    foptions: []
+    options: []
   },
 ]

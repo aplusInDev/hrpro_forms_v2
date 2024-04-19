@@ -3,18 +3,18 @@ import FOption from './ui/FOption'
 import '../assets/css/CustomOptions.css'
 import { Icon } from '@iconify/react';
 
-export default function CustomOptions() {
+export default function CustomOptions({ fOptions }) {
   const [text, setText] = useState('');
   const [options, dispatch] = useReducer(
     OptionReducer,
-    []
+    fOptions
   );
 
   function handleAddOption() {
     if (!text) {
       return;
     }
-    dispatch({ type: 'ADD', id: nextId++, text: text });
+    dispatch({ type: 'ADD', text: text });
     setText('');
   }
 
@@ -69,7 +69,7 @@ function OptionReducer(state, action) {
       if (state.some((o) => o.text === action.text)) {
         return state;
       }
-      return [...state, { id: action.id, text: action.text }];
+      return [...state, { id: state.length, text: action.text }];
     }
     case 'REMOVE': {
       return state.filter((o) => o.id !== action.id);
@@ -86,5 +86,3 @@ function OptionReducer(state, action) {
       return state;
   }
 }
-
-let nextId = 0;

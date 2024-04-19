@@ -10,27 +10,27 @@ export default function NewField() {
       <span>
         <label>
           <h4>field name</h4>
-          <FName />
+          <FName fname={""}/>
         </label>
         <label>
           <h4>field description</h4>
-          <FDescription />
+          <FDescription fDescription={""}/>
         </label>
         <label>
           <h4>field type</h4>
-          <FType />
+          <FType fType={""}/>
         </label>
         <label>
           <h4>is required</h4>
-          <FIsRequired />
+          <FIsRequired fIsRequired={""}/>
         </label>
         <label>
           <h4>default value</h4>
-          <FDefaultValue />
+          <FDefaultValue fDefaultValue={""}/>
         </label>
         <label>
           <h4>field options</h4>
-          <CustomOptions />
+          <CustomOptions fOptions={[]}/>
         </label>
       </span>
       <input type='submit' value='Add Field' />
