@@ -23,9 +23,8 @@ export default function FormInfo() {
         </textarea>
       </span>
       <span>
-        <input type='text' name='form-title' placeholder='form title' />
-        <button type='button'>new form</button>
-        <input type='submit' value='submit' />
+        <input type='text' name='form-title' placeholder='form name' />
+        <input type='submit' value='new form' />
       </span>
     </form>
   );

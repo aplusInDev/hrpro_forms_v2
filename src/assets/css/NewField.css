@@ -22,25 +22,7 @@
   justify-content: space-around;
 }
 
-.new-field > span > button {
-  border: 2px solid #108269;
-  color: #07392f;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 80px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  font-weight: 600;
-}
-
-.new-field > span > button:hover {
-  background-color: #044638;
-  color: white;
-  border: none;
-}
-
-.new-field select {
+select {
   border-radius: 10px;
   width: 80px;
   height: 23px;
@@ -48,11 +30,10 @@
   padding: 0 5px 5px;
   font-size: 15px;
   font-weight: 600;
-  /* border: 1px solid #107660; */
   color: #2a2929;
 }
 
-.new-field select > * {
+select > * {
   font-size: 14px;
   font-weight: bold;
 }
@@ -62,12 +43,10 @@
   border-radius: 10px;
   text-align: left;
   font-weight: 600;
-  /* border: 1px solid #107660; */
   color: #07392f;
   height: max-content;
   text-overflow: clip;
   padding: 2px 5px;
-  /* width: 100px; */
   height: 20px;
 }
 
@@ -75,17 +54,15 @@
   width: 100px;
 }
 
-.new-field textarea {
+textarea {
   font-weight: 600;
   border-radius: 10px;
   text-align: left;
   font-weight: 600;
-  /* border: 1px solid #107660; */
   color: #07392f;
-  height: max-content;
   text-overflow: clip;
   padding: 2px 5px;
-  height: 20px;
+  height: 40px;
 }
 
 .new-field input[type="submit"] {
@@ -103,7 +80,7 @@
   padding: auto 5px;
 }
 
-.new-field button {
+button {
   border: 2px solid #108269;
   color: #07392f;
   border-radius: 5px;
@@ -115,7 +92,7 @@
   font-weight: 600;
 }
 
-.new-field button:hover {
+button:hover {
   background-color: #044638;
   color: white;
   border: none;
@@ -127,13 +104,13 @@
   margin-right: 3px;
 }
 
-.new-field input[type="submit"]:hover {
+.new-field > input[type="submit"]:hover {
   background-color: #3b0443;
   opacity: 0.8;
   color: white;
   border: none;
 }
 
-.new-field input[type="text"]:focus {
+input[type="text"]:focus {
   border: 2px solid #108269;
 }
