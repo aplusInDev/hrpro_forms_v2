@@ -39,14 +39,15 @@
 
 .form-info select {
   border-radius: 10px;
-  width: 100px;
+  width: 200px;
   height: 25px;
   line-height: 25px;
-  text-align: center;
+  text-align: left;
   font-weight: 600;
   font-size: medium;
   border: 1px solid #107660;
   color: #07392f;
+  cursor: pointer;
 }
 
 .form-info textarea {
