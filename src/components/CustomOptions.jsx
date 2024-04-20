@@ -2,11 +2,14 @@ import { React, useReducer, useState } from 'react'
 import FOption from './ui/FOption'
 import { Icon } from '@iconify/react';
 
-export default function CustomOptions({ fOptions }) {
+export default function CustomOptions({
+  obj,
+  onChange
+ }) {
   const [text, setText] = useState('');
   const [options, dispatch] = useReducer(
     OptionReducer,
-    fOptions
+    obj.options
   );
 
   function handleAddOption() {
@@ -15,14 +18,20 @@ export default function CustomOptions({ fOptions }) {
     }
     dispatch({ type: 'ADD', name: text });
     setText('');
+    onChange({ ...obj, options: [...obj.options, {id: options.length, name: text}]});
   }
 
   function handleChangeOption(option) {
     dispatch({ type: 'EDIT', option: option });
+    onChange({ ...obj, options: obj.options.map((o) => {
+      return o.id === option.id ? option : o
+      })
+    });
   }
 
   function handleRemoveOption(id) {
     dispatch({ type: 'REMOVE', id: id });
+    onChange({ ...obj, options: obj.options.filter((o) => o.id !== id)});
   }
 
   const optionsList = options.map((option) => (
@@ -34,6 +43,7 @@ export default function CustomOptions({ fOptions }) {
       />
     </li>
   ));
+
 
   return (
     <>
@@ -62,13 +72,15 @@ export default function CustomOptions({ fOptions }) {
   );
 }
 
+let nextId = 1;
+
 function OptionReducer(state, action) {
   switch (action.type) {
     case 'ADD': {
       if (state.some((o) => o.name === action.name)) {
         return state;
       }
-      return [...state, { id: state.length, name: action.name }];
+      return [...state, { id: nextId++, name: action.name }];
     }
     case 'REMOVE': {
       return state.filter((o) => o.id !== action.id);

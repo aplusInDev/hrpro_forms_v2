@@ -1,14 +1,12 @@
-import { React, useState } from 'react'
 
-export default function FName({ fname, ftext }) {
-  const [text, setText] = useState(ftext);
+export default function FText({ fname, obj, onChange }) {
 
   return (
     <input type='text'
       name={fname}
       placeholder={fname}
-      value={text}
-      onChange={(e) => setText(e.target.value)}
+      value={obj[fname]}
+      onChange={(e) => {onChange({...obj, [fname]: e.target.value})}}
     />
   );
 }

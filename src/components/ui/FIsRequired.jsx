@@ -1,12 +1,10 @@
-import { React, useState } from 'react'
 
-export default function FIsRequired({ fIsRequired }) {
-  const [isRequired, setIsRequired] = useState(fIsRequired);
+export default function FIsRequired({ obj, onChange }) {
 
   return (
     <input type='checkbox'
-      checked={isRequired}
-      onChange={(e) => setIsRequired(e.target.checked)}
+      checked={obj.isRequired}
+      onChange={(e) => onChange({...obj, isRequired: e.target.checked})}
     />
   )
 }

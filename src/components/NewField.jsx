@@ -1,38 +1,57 @@
-import React from 'react'
-import { FName, FType, FDescription, FIsRequired, FDefaultValue } from './ui'
+import { React, useState } from 'react'
+import { FText, FType, FDescription, FIsRequired } from './ui'
 import CustomOptions from './CustomOptions';
 
+const initialField = {
+  name: '',
+  description: '',
+  type: '',
+  isRequired: false,
+  defaultValue: '',
+  options: []
+};
+
 export default function NewField() {
+  const [field, setField] = useState(initialField);
+  const [submitting, setSubmitting] = useState(false);
+
+  function handleSubmit(e) {
+    setSubmitting(true);
+    e.preventDefault();
+    console.log('submitting:', field);
+    setField(initialField);
+  }
+
   return (
     <form className='new-field'
     >
       <span>
         <label>
           <h4>field name</h4>
-          <FName fname={""}/>
+          <FText fname={'name'} obj={field} onChange={setField} />
         </label>
         <label>
           <h4>field description</h4>
-          {/* <FDescription fDescription={""}/> */}
+          <FDescription obj={field} onChange={setField} />
         </label>
         <label>
           <h4>field type</h4>
-          <FType fType={""}/>
+          <FType obj={field} onChange={setField} />
         </label>
         <label>
           <h4>is required</h4>
-          <FIsRequired fIsRequired={""}/>
+          <FIsRequired obj={field} onChange={setField} />
         </label>
         <label>
           <h4>default value</h4>
-          <FDefaultValue fDefaultValue={""}/>
+          <FText fname={'defaultValue'} obj={field} onChange={setField} />
         </label>
         <label>
           <h4>field options</h4>
-          <CustomOptions fOptions={[]}/>
+          <CustomOptions obj={field} onChange={setField} key={"k"+submitting} />
         </label>
       </span>
-      <input type='submit' value='Add Field' />
+      <input type='submit' value='Add Field' onClick={handleSubmit} />
     </form>
   );
 }
