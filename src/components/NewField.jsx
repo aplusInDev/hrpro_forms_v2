@@ -1,7 +1,6 @@
 import React from 'react'
 import { FName, FType, FDescription, FIsRequired, FDefaultValue } from './ui'
 import CustomOptions from './CustomOptions';
-import '../assets/css/NewField.css'
 
 export default function NewField() {
   return (

@@ -1,6 +1,5 @@
 import { React, useReducer, useState } from 'react'
 import FOption from './ui/FOption'
-import '../assets/css/CustomOptions.css'
 import { Icon } from '@iconify/react';
 
 export default function CustomOptions({ fOptions }) {

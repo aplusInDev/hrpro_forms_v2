@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useRef } from 'react'
 import { Icon } from '@iconify/react';
 
 export default function FOption({
@@ -8,10 +8,18 @@ export default function FOption({
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(option.name);
+  const inputRef = useRef(null);
 
   function handleSave() {
     setIsEditing(false);
     onChange({ ...option, name: text });
+  }
+
+  function handleEdit() {
+    setIsEditing(true);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   }
 
   function handleRemove() {
@@ -20,17 +28,11 @@ export default function FOption({
   
   return (
     <>
-      {/* <input name='foption'
-        type='text'
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder='Option'
-        disabled={!isEditing}
-      /> */}
       {
         isEditing ? (
           <>
             <input name='foption'
+              ref={inputRef}
               type='text'
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -46,7 +48,7 @@ export default function FOption({
           <>
             <h4>{option.name}</h4>
             <button type='button'
-              onClick={() => setIsEditing(true)}
+              onClick={handleEdit}
             >
               <Icon icon="akar-icons:edit" />
             </button>

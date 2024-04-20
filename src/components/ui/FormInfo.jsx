@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react'
-// import '../../assets/css/FormInfo-old.css'
 import { getForms, postForm, putForm } from '../../services/formService'
 
 const company_id = localStorage.getItem('company_id');
