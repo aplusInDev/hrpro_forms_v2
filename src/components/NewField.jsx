@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import { FText, FType, FDescription, FIsRequired } from './ui'
 import CustomOptions from './CustomOptions';
+import { postField } from '../services/fieldService';
 
 const initialField = {
   name: '',
@@ -11,13 +12,27 @@ const initialField = {
   options: []
 };
 
-export default function NewField() {
+export default function NewField({ formId }) {
   const [field, setField] = useState(initialField);
 
-  function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
-    console.log('submitting:', field);
-    setField(initialField);
+    const newField = {
+      fname: field.name,
+      fdescription: field.description,
+      ftype: field.type,
+      default_value: field.defaultValue,
+      is_required: field.isRequired,
+      options: JSON.stringify(field.options.map(o => o.name)),
+    };
+
+    if (field.name !== '' && formId) {
+      const postedField = await postField(formId, newField);
+      if (postedField) {
+        console.log('new field:', postedField);
+        setField(initialField);
+      }
+    }
   }
 
   return (

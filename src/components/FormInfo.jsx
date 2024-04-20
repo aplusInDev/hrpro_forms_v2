@@ -10,7 +10,7 @@ const initialForm = {
   description: ''
 }
 
-export default function FormInfo() {
+export default function FormInfo({ setFormId }) {
   const [forms, setForms] = useState([]);
   const [form, setForm] = useState(initialForm);
 
@@ -20,10 +20,12 @@ export default function FormInfo() {
       if (forms) {
         setForms(forms);
         setForm(forms[0]);
+        setFormId(forms[0].id);
       }
     };
     fetchForms();
-  }, []);
+  // }, []);
+  }, [setFormId]);
 
   async function handleEdit(form) {
     const updated_form = await putForm({
@@ -34,6 +36,7 @@ export default function FormInfo() {
     if (updated_form) {
       setForms(forms.map(f => f.id === updated_form.id ? updated_form : f));
       setForm(updated_form);
+      setFormId(updated_form.id);
     }
   }
 
@@ -42,17 +45,19 @@ export default function FormInfo() {
     if (isDeleted) {
       setForms(forms.filter((form) => form.id !== id));
       setForm(forms[0]);
+      setFormId(forms[0].id);
     }
   }
 
   function handleChange(form) {
     setForm(form);
     setForms(forms.map(f => f.id === form.id ? form : f));
+    setFormId(form.id);
   }
 
   const all_forms = forms.map((form, index) => {
     return (
-      <li key={index} onClick={() => { setForm(form); }}>
+      <li key={index} onClick={() => { setForm(form); setFormId(form.id)}}>
         <FOption option={form} onChange={handleEdit} onRemove={handleRemove}/>
       </li>
     );
