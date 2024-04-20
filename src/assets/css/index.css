@@ -7,7 +7,3 @@
 ul {
   list-style: none;
 }
-
-button, input[type="submit"] {
-  transition: background-color, color 1s linear;
-}

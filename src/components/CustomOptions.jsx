@@ -14,7 +14,7 @@ export default function CustomOptions({ fOptions }) {
     if (!text) {
       return;
     }
-    dispatch({ type: 'ADD', text: text });
+    dispatch({ type: 'ADD', name: text });
     setText('');
   }
 
@@ -66,10 +66,10 @@ export default function CustomOptions({ fOptions }) {
 function OptionReducer(state, action) {
   switch (action.type) {
     case 'ADD': {
-      if (state.some((o) => o.text === action.text)) {
+      if (state.some((o) => o.name === action.name)) {
         return state;
       }
-      return [...state, { id: state.length, text: action.text }];
+      return [...state, { id: state.length, name: action.name }];
     }
     case 'REMOVE': {
       return state.filter((o) => o.id !== action.id);

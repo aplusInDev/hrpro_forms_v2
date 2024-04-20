@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react'
-import '../../assets/css/FormInfo.css'
+// import '../../assets/css/FormInfo-old.css'
+import { getForms, postForm, putForm } from '../../services/formService'
 
 const company_id = localStorage.getItem('company_id');
 const allFormsUrl = `http://localhost:5000/api/v1/companies/${company_id}/forms`;
@@ -10,7 +11,7 @@ export default function FormInfo() {
 
   useEffect(() => {
     const fetchForms = async () => {
-      const forms = await getForms();
+      const forms = await getForms(allFormsUrl);
       if (forms) {
         setForms(forms);
         setForm(forms[0]);
@@ -27,7 +28,7 @@ export default function FormInfo() {
       name: text.value,
       description: desc.value,
     };
-    const form = await postForm(formInfo);
+    const form = await postForm(allFormsUrl, formInfo);
     if (form) {
       setForms([...forms, form]);
       setForm(form);
@@ -93,58 +94,4 @@ export default function FormInfo() {
       </span>
     </form>
   );
-}
-
-async function getForms() {
-  try {
-    const response = await fetch(allFormsUrl);
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error);
-    return null;
-  } finally {
-    console.log('completed');
-  }
-}
-
-async function postForm(info) {
-  try {
-    const response = await fetch(allFormsUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(info)
-    });
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error);
-    return null;
-  } finally {
-    console.log('completed');
-  }
-}
-
-async function putForm(info) {
-  try {
-    const response = await fetch(info.uri, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(info)
-    });
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error);
-    return null;
-  } finally {
-    console.log('completed');
-  }
 }

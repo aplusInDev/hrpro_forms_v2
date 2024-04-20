@@ -1,0 +1,337 @@
+/* styling form-info */
+
+.form-info,
+.new-field {
+  position: relative;
+  width: 1000px;
+  margin: 30px auto;
+  border-radius: 10px;
+  border: 2px solid #044638;
+  color: #061613;
+}
+
+.form-info {
+  height: 180px;
+}
+
+.form-info > .all-forms {
+  position: absolute;
+  padding-left: 20px;
+  width: 700px;
+  height: 90%;
+  top: 5%;
+  display: flex;
+  flex: 1;
+}
+
+.form-info > .all-forms::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 0;
+  height: 80%;
+  border-left: 1px solid #000;
+  opacity: 0.3;
+}
+
+.all-forms label {
+  margin: 10px;
+}
+
+.all-forms h3 {
+  margin: 5px auto;
+}
+
+.all-forms textarea {
+  width: 420px;
+}
+
+.all-forms button[type="submit"] {
+  position: absolute;
+  right: 20px;
+  bottom: 6px;
+  width: 100px;
+  height: 25px;
+  border: 1px solid #108269;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.all-forms button[type="submit"]:hover {
+  background-color: #3b0443;
+  color: white;
+  border: none;
+  opacity: 0.8;
+}
+
+/*  */
+
+.new-field {
+  height: 150px;
+}
+
+.new-field label > * {
+  margin-bottom: 5px;
+}
+
+.new-field > span {
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+table select,
+.new-field select {
+  border-radius: 10px;
+  width: 80px;
+  height: 23px;
+  text-align: left;
+  padding: 0 5px 5px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a2929;
+}
+
+table select > *,
+.new-field select > * {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.new-field input[type="text"] {
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: left;
+  font-weight: 600;
+  color: #07392f;
+  height: max-content;
+  text-overflow: clip;
+  padding: 2px 5px;
+  height: 20px;
+}
+
+.new-field input[type="text"]:not(input[name="foption"]) {
+  width: 100px;
+}
+
+.form-info textarea,
+.new-field textarea {
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: left;
+  font-weight: 600;
+  color: #07392f;
+  text-overflow: clip;
+  padding: 2px 5px;
+  height: 40px;
+}
+
+.new-field input[type="submit"] {
+  position: absolute;
+  left: 20px;
+  bottom: 6px;
+  border: 2px solid #108269;
+  color: #07392f;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-weight: 600;
+  padding: auto 5px;
+}
+
+table button,
+.new-field button {
+  border: 2px solid #108269;
+  color: #07392f;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  padding-bottom: 2px;
+  font-weight: 600;
+}
+
+table button:hover,
+.new-field button:hover {
+  background-color: #044638;
+  color: white;
+  border: none;
+  opacity: 0.8;
+}
+
+.new-field label:last-child > input {
+  width: 120px;
+  margin-right: 3px;
+}
+
+.new-field > input[type="submit"]:hover {
+  background-color: #3b0443;
+  opacity: 0.8;
+  color: white;
+  border: none;
+}
+
+table input[type="text"]
+.new-field input[type="text"]:focus {
+  border: 2px solid #108269;
+}
+
+/* form info --end */
+
+/* styling CustomFOption */
+
+.form-info input[name="foption"],
+.form-info h4 {
+  width: 100px;
+  margin: 2px;
+  border: none;
+  color: #061613;
+  font-weight: 600;
+}
+
+.form-info h4 {
+  display: inline-block;
+  width: 110px;
+}
+
+.form-info input[name="foption"]:focus{
+  border-radius: 2px;
+  border: 2px solid #042d43;
+}
+
+.form-info-btn {
+  position: relative;
+  width: 205px;
+  height: 25px;
+  border-radius: 10px;
+  border: 1px solid #061613;
+  text-align: left;
+  padding-left: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.form-info-btn:focus {
+  border: 2px solid #042d43;
+}
+
+.form-info-btn::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #050844;
+}
+
+.form-info-btn:hover::before,
+.form-info-btn:focus::before {
+  transform: rotate(180deg);
+  top: -5px;
+}
+
+.form-info-btn:hover + .forms-list,
+.form-info-btn:focus + .forms-list {
+  display: block;
+}
+
+.forms-list {
+  display: none;
+}
+
+.forms-list,
+.options-list {
+  position: relative;
+  margin-top: 5px;
+  height: 90px;
+  width: 205px;
+  border: 2px solid #044638;
+  border-radius: 10px;
+  margin: -2px;
+}
+
+.forms-list > ul,
+.options-list > ul {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 200px;
+  height: 80px;
+  padding: 5px 10px;
+  overflow-y: scroll;
+}
+
+
+.forms-list button,
+.options-list button {
+  margin-left: 4px;
+  width: 30px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.forms-list button + button:hover,
+.options-list button + button:hover{
+  background-color: red;
+}
+
+/* styling scrollbar */
+.forms-list > ul::-webkit-scrollbar,
+.options-list > ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.forms-list > ul::-webkit-scrollbar-thumb,
+.options-list > ul::-webkit-scrollbar-thumb {
+  background-color: #7e8785;
+  border-radius: 10px;
+}
+
+.forms-list > ul::-webkit-scrollbar-track,
+.options-list > ul::-webkit-scrollbar-track {
+  background-color: none;
+  border-radius: 10px;
+}
+
+/* styling scrollbar */
+
+.forms-list button {
+  border: 1px solid #24547c;
+  width: 25px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-top: 2px;
+}
+
+.forms-list button:hover,
+.forms-list button:focus {
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.forms-list button:first-of-type:hover,
+.forms-list button:first-of-type:focus {
+  background-color: #24547c;
+}
+
+.forms-list button:last-of-type:hover,
+.forms-list button:last-of-type:focus {
+  background-color: #780f3e;
+}

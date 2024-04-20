@@ -7,11 +7,11 @@ export default function FOption({
   onChange
 }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [text, setText] = useState(option.text);
+  const [text, setText] = useState(option.name);
 
   function handleSave() {
     setIsEditing(false);
-    onChange({ ...option, text: text });
+    onChange({ ...option, name: text });
   }
 
   function handleRemove() {
@@ -20,26 +20,37 @@ export default function FOption({
   
   return (
     <>
-      <input name='foption'
+      {/* <input name='foption'
         type='text'
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder='Option'
         disabled={!isEditing}
-      />
+      /> */}
       {
         isEditing ? (
-          <button type='button'
-            onClick={handleSave}
-          >
-            <Icon icon="akar-icons:check" />
-          </button>
+          <>
+            <input name='foption'
+              type='text'
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder='Option'
+            />
+            <button type='button'
+              onClick={handleSave}
+            >
+              <Icon icon="akar-icons:check" />
+            </button>
+          </>
         ) : (
-          <button type='button'
-            onClick={() => setIsEditing(true)}
-          >
-            <Icon icon="akar-icons:edit" />
-          </button>
+          <>
+            <h4>{option.name}</h4>
+            <button type='button'
+              onClick={() => setIsEditing(true)}
+            >
+              <Icon icon="akar-icons:edit" />
+            </button>
+          </>
         )
       }
       <button type='button'

@@ -54,7 +54,8 @@ select > * {
   width: 100px;
 }
 
-textarea {
+table textarea,
+.new-field textarea {
   font-weight: 600;
   border-radius: 10px;
   text-align: left;
@@ -80,7 +81,8 @@ textarea {
   padding: auto 5px;
 }
 
-button {
+table button,
+.new-field button {
   border: 2px solid #108269;
   color: #07392f;
   border-radius: 5px;
@@ -92,7 +94,8 @@ button {
   font-weight: 600;
 }
 
-button:hover {
+table button:hover,
+.new-field button:hover {
   background-color: #044638;
   color: white;
   border: none;
@@ -111,6 +114,7 @@ button:hover {
   border: none;
 }
 
-input[type="text"]:focus {
+table input[type="text"]
+.new-field input[type="text"]:focus {
   border: 2px solid #108269;
 }

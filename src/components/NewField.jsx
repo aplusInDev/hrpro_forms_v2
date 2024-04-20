@@ -26,7 +26,7 @@ export default function NewField() {
         </label>
         <label>
           <h4>default value</h4>
-          <FDefaultValue fDefaultValue={""}/>
+          {/* <FDefaultValue fDefaultValue={""}/> */}
         </label>
         <label>
           <h4>field options</h4>

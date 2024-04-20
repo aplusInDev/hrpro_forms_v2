@@ -41,7 +41,7 @@ td:last-child {
   padding-left: 15px;
 }
 
-input[type="text"] {
+table input[type="text"] {
   font-weight: 600;
   border-radius: 10px;
   text-align: left;
@@ -54,11 +54,11 @@ input[type="text"] {
   height: 20px;
 }
 
-input + button {
+table input + button {
   margin: auto auto 5px 5px;
 }
 
-td:last-child > button {
+table td:last-child > button {
   width: 30px;
   height: 20px;
   line-height: 20px;

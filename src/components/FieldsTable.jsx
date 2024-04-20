@@ -32,7 +32,7 @@ export default function FieldsTable() {
 
 function FieldRow({ field }) {
   const options = field.options.map((o, index) => {
-    return {id: index, text: o}
+    return {id: index, name: o}
   })
 
   return (
@@ -41,7 +41,7 @@ function FieldRow({ field }) {
       <td><FDescription fDescription={field.description}/></td>
       <td><FType fType={field.type} /></td>
       <td><FIsRequired fIsRequired={field.isRequired} /></td>
-      <td><FDefaultValue fDefaultValue={field.defaultValue}/></td>
+      {/* <td><FDefaultValue fDefaultValue={field.defaultValue}/></td> */}
       <td><CustomOptions fOptions={options} /></td>
       <td>
         <button>
