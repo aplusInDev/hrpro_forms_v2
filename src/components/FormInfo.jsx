@@ -56,9 +56,9 @@ export default function FormInfo() {
     }
   }
 
-  function handleUpdateForm(e) {
-    e.preventDefault();
-    console.log(form);
+  function handleChange(form) {
+    setForm(form);
+    setForms(forms.map(f => f.id === form.id ? form : f));
   }
 
   const all_forms = forms.map((form, index) => {
@@ -86,11 +86,12 @@ export default function FormInfo() {
         </label>
         <label>
           <h3>Form Description</h3>
-            <FDescription fDescription={form.description} f={form} onChange={setForm} />
+            <FDescription obj={form} onChange={handleChange} />
         </label>
-        <button type='submit'
-          onClick={handleUpdateForm}
-        >
+        <button type='submit' onClick={(e) => {
+          e.preventDefault();
+          handleEdit(form);
+        }}>
           Update Form
         </button>
       </form>

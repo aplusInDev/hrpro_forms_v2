@@ -14,7 +14,7 @@ export default function NewField() {
         </label>
         <label>
           <h4>field description</h4>
-          <FDescription fDescription={""}/>
+          {/* <FDescription fDescription={""}/> */}
         </label>
         <label>
           <h4>field type</h4>
@@ -26,7 +26,7 @@ export default function NewField() {
         </label>
         <label>
           <h4>default value</h4>
-          {/* <FDefaultValue fDefaultValue={""}/> */}
+          <FDefaultValue fDefaultValue={""}/>
         </label>
         <label>
           <h4>field options</h4>

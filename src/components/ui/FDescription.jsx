@@ -1,17 +1,15 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 
-export default function FDescription({ fDescription, f, onChange }) {
-  const [text, setText] = useState(fDescription);
+export default function FDescription({ obj, onChange }) {
 
   return (
     <textarea
       name="field-description"
       id={nextId++} cols="20" rows="2"
       placeholder='field-description!'
-      value={text}
+      value={obj.description}
       onChange={(e) => {
-        setText(e.target.value)
-        onChange({ ...f, description: e.target.value })
+        onChange({ ...obj, description: e.target.value });
     }}>
     </textarea>
   );

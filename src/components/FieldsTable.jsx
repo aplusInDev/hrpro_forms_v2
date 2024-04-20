@@ -38,10 +38,10 @@ function FieldRow({ field }) {
   return (
     <tr>
       <td><FName fname={field.name} /></td>
-      <td><FDescription fDescription={field.description}/></td>
+      {/* <td><FDescription fDescription={field.description}/></td> */}
       <td><FType fType={field.type} /></td>
       <td><FIsRequired fIsRequired={field.isRequired} /></td>
-      {/* <td><FDefaultValue fDefaultValue={field.defaultValue}/></td> */}
+      <td><FDefaultValue fDefaultValue={field.defaultValue}/></td>
       <td><CustomOptions fOptions={options} /></td>
       <td>
         <button>
