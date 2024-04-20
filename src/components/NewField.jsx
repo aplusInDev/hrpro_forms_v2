@@ -13,10 +13,8 @@ const initialField = {
 
 export default function NewField() {
   const [field, setField] = useState(initialField);
-  const [submitting, setSubmitting] = useState(false);
 
   function handleSubmit(e) {
-    setSubmitting(true);
     e.preventDefault();
     console.log('submitting:', field);
     setField(initialField);
