@@ -48,10 +48,12 @@ export default function NewField() {
         </label>
         <label>
           <h4>field options</h4>
-          <CustomOptions obj={field} onChange={setField} key={"k"+submitting} />
+          <CustomOptions obj={field} onChange={setField} key={"k"+ nextId++} />
         </label>
       </span>
       <input type='submit' value='Add Field' onClick={handleSubmit} />
     </form>
   );
 }
+
+let nextId = 0;
