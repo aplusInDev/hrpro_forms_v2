@@ -4,7 +4,7 @@ import { getForms } from '../services/formService';
 import { getFields } from '../services/fieldService';
 import '../assets/css/CustomForm.css'
 
-localStorage.setItem('company_id', 'b344d0e5-6a02-472a-9c82-dc7c9e57d3f1');
+localStorage.setItem('company_id', 'd9a18e19-d4d1-41b3-b099-59e078acc8c3');
 
 //
 const company_id = localStorage.getItem('company_id');
@@ -28,7 +28,7 @@ export default function CustomForm() {
         const formFields = await getFields(forms[0].id);
         const allFields = formFields.map(field => {
           return {...field, options: field.options.map((o, index) => {
-            return {id: "f" + nextId++, name: o}
+            return {id: "f" + index, name: o}
           })}
         })
         setFields(allFields);
@@ -51,5 +51,3 @@ export default function CustomForm() {
     </>
   );
 }
-
-let nextId = 0;

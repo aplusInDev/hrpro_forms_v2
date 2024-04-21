@@ -38,7 +38,7 @@ function FieldRow({ field, onChange }) {
   return (
     <tr>
       <td>
-        <FText fname={'fname'} obj={field} onChange={onChange} />
+        <FText fname={'name'} obj={field} onChange={onChange} />
       </td>
       <td>
         <FDescription obj={field} onChange={onChange} />

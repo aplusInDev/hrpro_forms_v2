@@ -7,8 +7,8 @@ const initialField = {
   name: '',
   description: '',
   type: '',
-  isRequired: false,
-  defaultValue: '',
+  is_required: false,
+  default_value: '',
   options: []
 };
 
@@ -18,11 +18,7 @@ export default function NewField({ formId }) {
 async function handleSubmit(e) {
     e.preventDefault();
     const newField = {
-      fname: field.name,
-      fdescription: field.description,
-      ftype: field.type,
-      default_value: field.defaultValue,
-      is_required: field.isRequired,
+      ...field,
       options: JSON.stringify(field.options.map(o => o.name)),
     };
 
@@ -57,7 +53,7 @@ async function handleSubmit(e) {
         </label>
         <label>
           <h4>default value</h4>
-          <FText fname={'defaultValue'} obj={field} onChange={setField} />
+          <FText fname={'default_value'} obj={field} onChange={setField} />
         </label>
         <label>
           <h4>field options</h4>
