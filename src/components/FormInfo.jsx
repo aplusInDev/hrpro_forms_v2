@@ -10,6 +10,16 @@ export default function FormInfo({
   setFields
 }) {
 
+  function updateFields(formId) {
+    getFields(formId).then((fields) => {
+      const all_fields = fields.map((f) => ({
+        ...f,
+        options: f.options.map((o, i) => ({ id: `option-${i}`, name: o }))
+      }));
+      setFields(all_fields);
+    });
+  }
+
   async function handleEdit(form) {
     const updated_form = await putForm({
       name: form.name,
@@ -19,8 +29,7 @@ export default function FormInfo({
     if (updated_form) {
       setForms(forms.map(f => f.id === updated_form.id ? updated_form : f));
       setForm(updated_form);
-      console.log("edit:", updated_form.fields);
-      setFields(updated_form.fields);
+      updateFields(updated_form.id);
     }
   }
 
@@ -29,8 +38,7 @@ export default function FormInfo({
     if (isDeleted) {
       setForms(forms.filter((form) => form.id !== id));
       setForm(forms[0]);
-      console.log("remve: ", forms[0].fields);
-      setFields(forms[0].fields);
+      updateFields(forms[0].id);
     }
   }
 
@@ -41,15 +49,7 @@ export default function FormInfo({
 
   function handleClick(form) {
     setForm(form);
-    getFields(form.id).then((fields) => {
-      console.log("click:", fields);
-      const allFields = fields.map(field => {
-        return {...field, options: field.options.map((o, index) => {
-          return {id: "f" + nextId++, name: o}
-        })}
-      })
-      setFields(allFields);
-    });
+    updateFields(form.id);
   }
 
   const all_forms = forms.map((form, index) => {
@@ -90,5 +90,3 @@ export default function FormInfo({
     </div>
   );
 }
-
-let nextId = 0;
