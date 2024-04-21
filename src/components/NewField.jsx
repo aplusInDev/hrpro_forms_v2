@@ -12,7 +12,10 @@ const initialField = {
   options: []
 };
 
-export default function NewField({ formId }) {
+export default function NewField({
+  formId,
+  fields, setFields
+}) {
   const [field, setField] = useState(initialField);
 
 async function handleSubmit(e) {
@@ -27,6 +30,15 @@ async function handleSubmit(e) {
       if (postedField) {
         console.log('new field:', postedField);
         setField(initialField);
+        setFields([
+          ...fields,
+          {
+            ...postedField,
+            options: postedField.options.map((o, index) => {
+              return {id: "f" + index, name: o}
+            })
+          }
+        ]);
       }
     }
   }

@@ -46,7 +46,11 @@ export default function CustomForm() {
         setForms={setForms}
         setFields={setFields}
       />
-      <NewField formId={form.id} />
+      <NewField 
+        formId={form.id}
+        fields={fields}
+        setFields={setFields}
+      />
       <FieldsTable fields={fields} setFields={setFields} />
     </>
   );
