@@ -18,7 +18,7 @@ export default function CustomOptions({
     }
     dispatch({ type: 'ADD', id: nextId++, name: text });
     setText('');
-    onChange({ ...obj, options: [...obj.options, {id: options.length, name: text}]});
+    onChange({ ...obj, options: [...obj.options, {id: nextId++, name: text}]});
   }
 
   function handleChangeOption(option) {
