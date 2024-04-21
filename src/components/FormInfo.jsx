@@ -46,6 +46,12 @@ export default function FormInfo({
     setForm(form);
     setForms(forms.map(f => f.id === form.id ? form : f));
   }
+  
+  function handleAdd(form) {
+    setForm(form);
+    setForms([...forms, form]);
+    updateFields(form.id);
+  }
 
   function handleClick(form) {
     setForm(form);
@@ -86,7 +92,7 @@ export default function FormInfo({
           Update Form
         </button>
       </form>
-      <NewForm onAdd={handleChange} />
+      <NewForm onAdd={handleAdd} />
     </div>
   );
 }
