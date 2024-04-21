@@ -24,7 +24,6 @@ export default function FormInfo({ setFormId }) {
       }
     };
     fetchForms();
-  // }, []);
   }, [setFormId]);
 
   async function handleEdit(form) {
