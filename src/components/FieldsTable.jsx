@@ -34,9 +34,6 @@ export default function FieldsTable({ fields, setFields }) {
 }
 
 function FieldRow({ field, onChange }) {
-  // const options = field.options.map((o, index) => {
-  //   return {id: index, name: o}
-  // })
 
   return (
     <tr>
@@ -71,30 +68,3 @@ function FieldRow({ field, onChange }) {
 }
 
 let nextId = 0;
-
-// const fields = [
-//   {
-//     name: 'name',
-//     description: 'name of the user',
-//     type: 'text',
-//     isRequired: true,
-//     defaultValue: 'user',
-//     options: ['user', 'admin']
-//   },
-//   {
-//     name: 'email',
-//     description: 'email of the user',
-//     type: 'text',
-//     isRequired: true,
-//     defaultValue: '',
-//     options: []
-//   },
-//   {
-//     name: 'age',
-//     description: 'age of the user',
-//     type: 'number',
-//     isRequired: false,
-//     defaultValue: 0,
-//     options: []
-//   },
-// ]

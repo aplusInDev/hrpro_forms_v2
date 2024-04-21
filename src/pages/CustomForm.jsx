@@ -37,8 +37,6 @@ export default function CustomForm() {
     fetchForms();
   }, []);
 
-  // console.log('fields: ', fields);
-
   return (
     <>
       <FormInfo

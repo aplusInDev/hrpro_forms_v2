@@ -4,32 +4,11 @@ import { NewForm } from './'
 import { putForm, deleteForm } from '../services/formService'
 import { getFields } from '../services/fieldService'
 
-// const company_id = localStorage.getItem('company_id');
-// const allFormsUrl = `http://localhost:5000/api/v1/companies/${company_id}/forms`;
-// const initialForm = {
-//   name: '',
-//   description: ''
-// }
-
 export default function FormInfo({
   form, setForm,
   forms, setForms,
   setFields
 }) {
-  // const [forms, setForms] = useState([]);
-  // const [form, setForm] = useState(initialForm);
-
-  // useEffect(() => {
-  //   const fetchForms = async () => {
-  //     const forms = await getForms(allFormsUrl);
-  //     if (forms) {
-  //       setForms(forms);
-  //       setForm(forms[0]);
-  //       setFormId(forms[0].id);
-  //     }
-  //   };
-  //   fetchForms();
-  // }, [setFormId]);
 
   async function handleEdit(form) {
     const updated_form = await putForm({
@@ -40,7 +19,6 @@ export default function FormInfo({
     if (updated_form) {
       setForms(forms.map(f => f.id === updated_form.id ? updated_form : f));
       setForm(updated_form);
-      // setFormId(updated_form.id);
       console.log("edit:", updated_form.fields);
       setFields(updated_form.fields);
     }
@@ -51,7 +29,6 @@ export default function FormInfo({
     if (isDeleted) {
       setForms(forms.filter((form) => form.id !== id));
       setForm(forms[0]);
-      // setFormId(forms[0].id);
       console.log("remve: ", forms[0].fields);
       setFields(forms[0].fields);
     }
@@ -60,12 +37,10 @@ export default function FormInfo({
   function handleChange(form) {
     setForm(form);
     setForms(forms.map(f => f.id === form.id ? form : f));
-    // setFormId(form.id);
   }
 
   function handleClick(form) {
     setForm(form);
-    // setFormId(form.id);
     getFields(form.id).then((fields) => {
       console.log("click:", fields);
       const allFields = fields.map(field => {
