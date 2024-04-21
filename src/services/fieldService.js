@@ -30,3 +30,33 @@ export async function getFields(formId) {
     return null;
   }
 }
+
+export async function putField(fieldUrl, info) {
+  try {
+    const response = await fetch(fieldUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(info)
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export async function deleteField(fieldUrl) {
+  try {
+    const response = await fetch(fieldUrl, {
+      method: 'DELETE'
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
