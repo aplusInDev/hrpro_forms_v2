@@ -1,6 +1,6 @@
 import { React } from 'react'
-import { FName, FType, FDescription, FIsRequired, FDefaultValue } from './ui'
-import CustomOptions from './CustomOptions';
+// import { FName, FType, FDescription, FIsRequired, FDefaultValue } from './ui'
+// import CustomOptions from './CustomOptions';
 import { Icon } from '@iconify/react';
 
 export default function FieldsTable() {
@@ -29,9 +29,9 @@ export default function FieldsTable() {
 }
 
 function FieldRow({ field }) {
-  const options = field.options.map((o, index) => {
-    return {id: index, name: o}
-  })
+  // const options = field.options.map((o, index) => {
+  //   return {id: index, name: o}
+  // })
 
   return (
     <tr>
