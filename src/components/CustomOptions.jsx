@@ -6,9 +6,13 @@ export default function CustomOptions({
   obj,
   onChange
  }) {
+  // const initialOptions = obj.options.map((o) => {
+  //   return  {id: "f" + nextId++, name: o}
+  // });
   const [text, setText] = useState('');
   const [options, dispatch] = useReducer(
     OptionReducer,
+    // initialOptions
     obj.options
   );
 
@@ -19,6 +23,7 @@ export default function CustomOptions({
     dispatch({ type: 'ADD', id: nextId++, name: text });
     setText('');
     onChange({ ...obj, options: [...obj.options, {id: nextId++, name: text}]});
+    console.log(options);
   }
 
   function handleChangeOption(option) {
