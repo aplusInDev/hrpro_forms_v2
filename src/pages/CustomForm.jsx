@@ -1,5 +1,4 @@
 import { React, useState } from 'react'
-// import { FormInfo } from '../components/ui'
 import { FormInfo, FieldsTable, NewField } from '../components';
 
 import '../assets/css/CustomForm.css'
