@@ -1,3 +1,16 @@
+:root {
+  --bgColor1: #1f2328;
+  --bgColor2: #d1f8f9;
+  --bgColor3: #ff818266;
+  --bgColor4: #636c76;
+  --bgColor5: #24292f;
+  --bgColor6: #57605a;
+  --bgColor7: #808fa3;
+  --bgColor8: #0d1117;
+  --bgColor9: #161b22f2;
+  --bgColor10: #30363d;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +21,17 @@ ul {
   list-style: none;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff2f2;
+  position: relative;
+  background-color: var(--bgColor2);
+}
+
 #root {
-  background-color: #324040;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }

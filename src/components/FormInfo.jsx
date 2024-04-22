@@ -71,7 +71,7 @@ export default function FormInfo({
     <div className='form-info'>
       <form className='all-forms'>
         <label>
-          <h3>Form Name </h3>
+          <h3>form name </h3>
           <button type='button' className='form-info-btn' >
             {form.name}
           </button>
@@ -82,7 +82,7 @@ export default function FormInfo({
           </div>
         </label>
         <label>
-          <h3>Form Description</h3>
+          <h3>form description</h3>
             <FDescription obj={form} onChange={handleChange} />
         </label>
         <button type='submit' onClick={(e) => {

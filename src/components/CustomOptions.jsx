@@ -4,7 +4,8 @@ import { Icon } from '@iconify/react';
 
 export default function CustomOptions({
   obj,
-  onChange
+  onChange,
+  disabled=false
  }) {
   const [text, setText] = useState('');
   const [options, dispatch] = useReducer(
@@ -19,7 +20,6 @@ export default function CustomOptions({
     dispatch({ type: 'ADD', id: nextId++, name: text });
     setText('');
     onChange({ ...obj, options: [...obj.options, {id: nextId++, name: text}]});
-    console.log(options);
   }
 
   function handleChangeOption(option) {
@@ -41,6 +41,7 @@ export default function CustomOptions({
         option={option}
         onRemove={handleRemoveOption}
         onChange={handleChangeOption}
+        disabled={disabled}
       />
     </li>
   ));
@@ -53,10 +54,12 @@ export default function CustomOptions({
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder='options'
+        disabled={disabled}
       />
       <button type='button'
         className='add-option-button'
         onClick={handleAddOption}
+        disabled={disabled}
       >
         <Icon icon="akar-icons:plus" />
         <span>option</span>

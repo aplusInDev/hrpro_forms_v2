@@ -4,7 +4,8 @@ import { Icon } from '@iconify/react';
 export default function FOption({
   option,
   onRemove,
-  onChange
+  onChange,
+  disabled=false
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(option.name);
@@ -44,21 +45,25 @@ export default function FOption({
         ) : (
           <>
             <h4>{option.name}</h4>
+            { disabled || (
             <button type='button'
               className='option-btn'
               onClick={handleEdit}
             >
               <Icon icon="akar-icons:edit" />
             </button>
+            )}
           </>
         )
       }
+      { disabled || (
       <button type='button'
         className='option-btn'
         onClick={handleRemove}
       >
         <Icon icon="akar-icons:trash" />
       </button>
+      )}
     </>
   );
 }

@@ -57,14 +57,12 @@ function FieldRow({
       options: JSON.stringify(field.options.map(o => o.name))
     }
     putField(field.uri, newField).then((res) => {
-      console.log("putField", res);
     });
   }
 
   function handleDeleteField() {
     const tmp = field.id;
     deleteField(field.uri).then((res) => {
-      console.log("deleteField", res);
       setFields(fields.filter((f) => f.id !== tmp));
     });
   }
@@ -113,6 +111,7 @@ function FieldRow({
           obj={field}
           onChange={onChange}
           key={"fieldsTable" + nextId++}
+          disabled={!isEditing}
         />
       </td>
       <td>
