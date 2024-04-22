@@ -5,7 +5,7 @@ textarea,
 select,
 .form-info-btn {
   background-color: #ffffff41;
-  color: #d8dddc;
+  color: #c0c1c2f7;
   border: none;
 }
 
@@ -20,7 +20,7 @@ input[type="text"] {
   border-radius: 10px;
   text-align: left;
   padding: 2px 5px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   overflow-wrap: break-word;
 }
@@ -29,10 +29,10 @@ textarea {
   font-weight: 600;
   border-radius: 10px;
   text-align: left;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   text-overflow: clip;
-  padding: 2px 5px;
+  padding: 5px 8px;
   height: 40px;
 }
 
@@ -58,13 +58,20 @@ input[type="checkbox"]::before {
   filter: brightness(1.2);
 }
 
-input[type="checkbox"]:checked::before {
+input[type="checkbox"]::before {
+  border: none;
+}
+
+input[type="checkbox"]:checked::after {
   content: "✔";
+  position: absolute;
   font-size: 18px;
   color: #76a39c;
   text-align: left;
   line-height: 8px;
   border: none;
+  top: -2px;
+  left: 2px;
 }
 
 /* styling checkbox __________________ */
@@ -83,7 +90,7 @@ input[type="submit"] {
   background-color: var(--bgColor10);
   color: #d8dddc;
   border: none;
-  filter: drop-shadow(1px 2px 7px #5a5959);
+  filter: drop-shadow(0px 1px 5px #5a5959);
 }
 
 button[type="button"]:not(.option-btn, .form-info-btn):hover {
@@ -106,15 +113,11 @@ input[type="submit"]:hover {
 .form-info,
 .new-field,
 tbody {
-  background-color: var(--bgColor1);
-  color: #fff2f2;
-}
-
-.form-info,
-.new-field,
-table {
-  font-family: 'Roboto', sans-serif;
+  background-color: var(--cardColor);
+  font-family: var(--cardFont);
   filter: drop-shadow(0 0 5px #000);
+  color: rgba(250, 251, 252, 0.571);
+  font-size: 14px;
 }
 
 .form-info,
@@ -153,8 +156,8 @@ table {
   height: 90px;
   border-radius: 10px;
   margin: -2px;
-  background-color: #adc1bc47;
-  color: var(--bgColor7);
+  background-color: #4a5163;
+  color: #bcbebf;
 }
 
 .forms-list > ul {
@@ -223,7 +226,6 @@ table td:last-child button {
   color: white;
   border-radius: 5px;
   background-color: var(--bgColor5);
-  filter: brightness(1.2) drop-shadow(0 0 2px #bdb9b9);
   border: none;
 }
 
@@ -235,27 +237,25 @@ table td:last-child button {
 .forms-list button:first-of-type,
 .options-list button:first-of-type,
 table td:last-child button:first-of-type {
-  filter: brightness(1.2) drop-shadow(0 0 2px #bdb9b9);
   color: #76a39c;
 }
 
 .forms-list button:first-of-type:hover,
 .options-list button:first-of-type:hover,
 table td:last-child button:first-of-type:hover {
-  filter: drop-shadow(1px 2px 7px #4b7f8f);
+  filter: brightness(1.2) drop-shadow(1px 2px 7px #4b7f8f);
 }
 
 .forms-list button:last-of-type,
 .options-list button:last-of-type,
 table td:last-child button:last-of-type {
   background-color: #32071a;
-  filter: brightness(1.2) drop-shadow(0 0 2px #bdb9b9);
   color: hsl(10, 50%, 50%);
 }
 .forms-list button:last-of-type:hover,
 .options-list button:last-of-type:hover,
 table td:last-child button:last-of-type:hover {
-  filter: drop-shadow(1px 2px 5px #b15b85);
+  filter: brightness(1.2) drop-shadow(1px 2px 5px #b15b85);
   color: hsl(10, 100%, 50%);
 }
 
@@ -267,7 +267,7 @@ table td:last-child button:last-of-type:hover {
 
 .forms-list > ul::-webkit-scrollbar-thumb,
 .options-list > ul::-webkit-scrollbar-thumb {
-  background-color: #7e8785;
+  background: linear-gradient(180deg, #7e8785, #5880a3);
   border-radius: 10px;
 }
 
@@ -290,7 +290,6 @@ table td:last-child button:last-of-type:hover {
   margin-bottom: 5px;
   font-weight: 600;
   font-size: 15px;
-  color: #b9cecbbc;
 }
 
 .form-info-btn::before {
@@ -329,7 +328,7 @@ table td:last-child button:last-of-type:hover {
   right: 0;
   width: 0;
   height: 80%;
-  border-left: 1px solid #000;
+  border-left: 1px solid #515272;
   opacity: 0.3;
 }
 
@@ -376,7 +375,7 @@ table td:last-child button:last-of-type:hover {
 /* styling .new-field */
 
 .new-field {
-  height: 150px;
+  height: 165px;
 }
 
 .new-field label > * {
@@ -386,7 +385,7 @@ table td:last-child button:last-of-type:hover {
 .new-field > span {
   position: absolute;
   padding: 5px;
-  top: 0;
+  top: 15px;
   height: 30px;
   width: 100%;
   display: flex;
@@ -409,6 +408,7 @@ table select {
 table select > * {
   font-size: 14px;
   font-weight: bold;
+  background-color: #0c162db5;
 }
 
 .new-field input[type="text"] {
@@ -419,12 +419,21 @@ table select > * {
   width: 100px;
 }
 
-.new-field input[type="submit"] {
+.new-field > button[type="button"],
+.new-field > input[type="submit"] {
   position: absolute;
-  left: 20px;
   bottom: 12px;
   width: 100px;
   height: 30px;
+}
+
+.new-field > button[type="button"] {
+  left: 130px;
+  border-radius: 10px !important;
+}
+
+.new-field input[type="submit"] {
+  left: 20px;
 }
 
 .new-field button:not(.option-btn),
@@ -435,7 +444,7 @@ table button:not(td:last-child button) {
   padding: 0 5px;
   margin-left: 5px;
   background-color: var(--bgColor5);
-  filter: brightness(1.2) drop-shadow(1px 2px 6px #5a5959);
+  filter: brightness(1.2) drop-shadow(1px 1px 3px #5a5959);
   color: white;
   border: none;
 }
@@ -453,7 +462,9 @@ table {
 thead {
   background-color: var(--bgColor10);
   height: 30px;
-  color: white;
+  color: #FAFBFC92;
+  font-family: var(--cardFont);
+  font-size: 14px;
 }
 
 thead tr {
@@ -476,7 +487,7 @@ td:not(td:nth-child(6)) {
 }
 
 td {
-  padding: 10px 5px;
+  padding: 20px 5px 10px;
   border-bottom: 1px solid var(--bgColor10);
 }
 
