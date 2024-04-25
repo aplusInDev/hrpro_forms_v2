@@ -3,8 +3,6 @@
 input,
 textarea,
 select {
-  /* background-color: #ffffff41; */
-  /* color: #c0c1c2f7; */
   background-color: #fefefe;
   color: var(--cardColor);
   border: none;
