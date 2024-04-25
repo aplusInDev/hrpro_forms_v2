@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import { FormInfo, FieldsTable, NewField } from '../components';
+import { FormInfo, FieldsTable, NewField , FormPreview } from '../components';
 import { getForms } from '../services/formService';
 import { getFields } from '../services/fieldService';
 import '../assets/css/CustomForm.css'
@@ -18,6 +18,7 @@ export default function CustomForm() {
   const [forms, setForms] = useState([]);
   const [form, setForm] = useState(initialForm);
   const [fields, setFields] = useState([]);
+  const [isShowPreview, setIsShowPreview] = useState(true);
 
   useEffect(() => {
     const fetchForms = async () => {
@@ -37,6 +38,10 @@ export default function CustomForm() {
     fetchForms();
   }, []);
 
+  function handleShowPreview() {
+    setIsShowPreview(!isShowPreview);
+  }
+
   return (
     <>
       <FormInfo
@@ -51,7 +56,16 @@ export default function CustomForm() {
         fields={fields}
         setFields={setFields}
       />
-      <FieldsTable fields={fields} setFields={setFields} />
+      <section className='show-preview'>
+        <button type='button' onClick={handleShowPreview}>
+          show {isShowPreview? "fields" : "preview"}
+        </button>
+      </section>
+      { isShowPreview ? (
+        <FormPreview form={form} fields={fields} />
+        ) : (
+        <FieldsTable fields={fields} setFields={setFields} />
+      )}
     </>
   );
 }

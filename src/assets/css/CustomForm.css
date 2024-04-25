@@ -10,13 +10,13 @@ select {
   border: none;
 }
 
-input[type="text"]:focus,
+input:focus,
 textarea:focus {
   outline: 1px solid #76a39c;
   border-radius: 10px;
 }
 
-input[type="text"] {
+input {
   outline: none;
   border-radius: 10px;
   text-align: left;
@@ -59,7 +59,6 @@ input[type="checkbox"]::before {
   left: -2px;
   width: 15px;
   height: 15px;
-  border: 1px solid #76a39c;
   border-radius: 5px;
   background-color: #adc1bc47;
   cursor: pointer;
@@ -121,6 +120,8 @@ input[type="submit"]:hover {
 /* styling form-info */
 .form-info,
 .new-field,
+.show-preview,
+.form-preview,
 tbody {
   background-color: var(--cardColor);
   font-family: var(--cardFont);
@@ -130,7 +131,9 @@ tbody {
 }
 
 .form-info,
-.new-field {
+.new-field,
+.show-preview,
+.form-preview {
   position: relative;
   width: 1000px;
   margin: 30px auto;
@@ -405,7 +408,8 @@ table td:last-child button:last-of-type:hover {
 }
 
 .new-field select,
-table select {
+table select,
+.form-preview select {
   border-radius: 10px;
   width: 105px;
   height: 23px;
@@ -550,3 +554,82 @@ td:last-child button > * {
 }
 
 /* styling fields-table __________________ */
+
+/* styling .show-preview section */
+.show-preview {
+  background-color: transparent;
+}
+
+.show-preview > button {
+  background-color: var(--cardColor);
+  filter: drop-shadow(0 0 5px #6c7071);
+  color: #fefefe;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+}
+/* styling .show-preview section ________________________*/
+
+/* styling form-preview */
+.form-preview {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: #fefefe;
+}
+
+.form-preview h1 {
+  width: 300px;
+}
+
+.form-preview > span {
+  width: 300px;
+  padding: 5px;
+}
+
+.form-preview > div {
+  width: 100%;
+  height: 30px;
+  margin: 5px auto;
+  padding: 5px 30px;
+  position: relative;
+}
+
+.form-preview input:not(input[type="checkbox"], input[type="radio"]),
+.form-preview select,
+.form-preview textarea {
+  position: absolute;
+  left: 200px;
+  width: 300px;
+  height: 25px;
+}
+
+.form-preview > div > span {
+  display: inline-block;
+  width: 120px;
+  margin-right: 50px;
+}
+
+.form-preview span ~ label {
+  /* background-color: red; */
+  margin-right: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.form-preview span ~ label > input {
+  margin-right: 5px;
+}
+
+.form-preview input[type="checkbox"] {
+  position: absolute;
+  top: 3px;
+}
+
+.form-preview input[type="checkbox"] + span {
+  padding-left: 20px;
+}
+
+/* styling form-preview ___________________ */
