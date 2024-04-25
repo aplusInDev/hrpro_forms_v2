@@ -8,7 +8,7 @@ select {
   border: none;
 }
 
-input:focus,
+input:not(input[type="radio"], input[type="checkbox"]):focus,
 textarea:focus {
   outline: 1px solid #76a39c;
   border-radius: 10px;
@@ -44,13 +44,15 @@ textarea {
 }
 
 /* styling checkbox */
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="radio"] {
   position: relative;
   width: 0;
   height: 0;
 }
 
-input[type="checkbox"]::before {
+input[type="checkbox"]::before,
+input[type="radio"]::before {
   content: "";
   position: absolute;
   top: -2px;
@@ -68,7 +70,8 @@ input[type="checkbox"]::before {
   border: none;
 }
 
-input[type="checkbox"]:checked::after {
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after {
   content: "✔";
   position: absolute;
   font-size: 18px;
@@ -609,7 +612,6 @@ td:last-child button > * {
 }
 
 .form-preview span ~ label {
-  /* background-color: red; */
   margin-right: 30px;
   height: 30px;
   line-height: 30px;
@@ -617,15 +619,13 @@ td:last-child button > * {
   position: relative;
 }
 
-.form-preview span ~ label > input {
-  margin-right: 5px;
-}
-
+.form-preview input[type="radio"],
 .form-preview input[type="checkbox"] {
   position: absolute;
   top: 3px;
 }
 
+.form-preview input[type="radio"] + span,
 .form-preview input[type="checkbox"] + span {
   padding-left: 20px;
 }
